@@ -15,7 +15,7 @@ API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL_NAME}
 
 # Get the API key from environment variables (local) or Streamlit secrets (deployment)
 # Use st.secrets in a production Streamlit app
-API_KEY = os.getenv("API_KEY")
+API_KEY = os.getenv("GEMINI_API_KEY")
 
 # --- Streamlit App UI ---
 st.set_page_config(
@@ -45,7 +45,7 @@ if st.button("Analyze Threat", type="primary"):
     if not user_input:
         st.error("Please enter some data to analyze.")
     elif not API_KEY:
-        st.error("API key not found. Please set the 'API_KEY' environment variable or a Streamlit secret.")
+        st.error("API key not found. Please set the 'GEMINI_API_KEY' environment variable or a Streamlit secret.")
     else:
         # Simple loading spinner
         with st.spinner("Analyzing... Awaiting virtual security analyst's report..."):
